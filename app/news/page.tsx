@@ -2,6 +2,18 @@
 
 const NEWS = [
   {
+    date: '2026-06-25',
+    title: 'June Roadmap: Mac Port Progress, Boss Rush Leaderboards, and Balance Patch Preview',
+    summary: 'Developer YuWave published the June development roadmap on Steam, outlining the next 3 months of Demon Lord: Just a Block updates. The Mac version is now in internal testing with a target release window of Q3 2026 — community testers report smooth performance on M2/M3 chips at 60fps, though M1 optimization is still in progress. Boss Rush Mode, added in v1.1.0, now includes global leaderboards with separate rankings for each difficulty tier; the top 10 speedrun times for all-bosses-Normal currently range from 2h 47m to 3h 12m. The next balance patch (v1.1.1, expected mid-July) will buff underused weapons — early notes mention significant improvements to the Lightning Spear and Void Gauntlets, plus a Flame build DOT stacking adjustment that should make pure-Flame builds viable for endgame. Also confirmed: a new "Weekend Trials" event system will introduce rotating challenge modifiers with unique cosmetic rewards. And in a surprise announcement, YuWave confirmed that the game has sold over 50,000 copies in its first two months, far exceeding the solo developer\'s expectations.',
+    tag: 'Update',
+  },
+  {
+    date: '2026-06-25',
+    title: 'May Updates Recap: Custom Key Mapping, Auto-Backup Saves, and Crash Fixes',
+    summary: 'Developer YuWave shipped two updates in May addressing key quality-of-life requests. The May 3 update adds custom key mapping — several abilities previously bound to the same key have been separated (e.g. Scythe and Bomberhead moved to distinct keys), giving players full control over their control scheme. An auto-backup system now automatically preserves save files from 1 and 2 hours ago, allowing rollback in case of data loss. A subsequent patch fixed a crash bug that occurred after certain in-game conversations, which had been a persistent issue for players progressing through story-heavy sections. With ~1,800 reviews at 96% positive and the Mac version confirmed for Q3–Q4 2026, the solo developer continues to iterate based on community feedback while working on the next major content update.',
+    tag: 'Update',
+  },
+  {
     date: '2026-06-20',
     title: 'Community Mods Hit 200+ — Developer Thanks Players',
     summary: 'Less than two months after launch, Demon Lord: Just a Block Steam Workshop mods have surpassed 200. Developer YuWave issued a thank-you statement and announced a Mod Creation Contest — outstanding entries will receive official endorsement and cash prizes. Submission deadline: July 15, 2026.',
