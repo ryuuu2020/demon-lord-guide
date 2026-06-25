@@ -73,6 +73,12 @@ export default function HomePage() {
 
       {/* ===== Hero Section ===== */}
       <section className="relative min-h-[100dvh] flex flex-col items-center justify-center px-4">
+        {/* Hero background image */}
+        <img
+          src="/hero.jpg"
+          alt="Demon Lord: Just a Block"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
         {/* Atmospheric overlay */}
         <div className="absolute inset-0 bg-abyss-gradient pointer-events-none" />
 

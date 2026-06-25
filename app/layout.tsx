@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Demon Lord Archive — Dark Fantasy Guide Hub',
   description: 'Demon Lord: Just a Block complete strategy guide — all boss strategies, build recommendations, weapon compendium, and beginner walkthrough',
-  metadataBase: new URL('https://demon-lord-guide.vercel.app.com'),
+  metadataBase: new URL('https://demon-lord-guide.vercel.app'),
   openGraph: {
     title: 'Demon Lord Archive',
     description: 'Demon Lord: Just a Block complete strategy guide — all boss strategies, build recommendations, weapon compendium, and beginner walkthrough',
@@ -35,6 +35,8 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8925824244664340" crossOrigin="anonymous" />
       </head>
       <body className="font-body min-h-screen">
         {children}
