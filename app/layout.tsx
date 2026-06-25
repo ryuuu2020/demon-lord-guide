@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   verification: {
-    google: 'google4cd6cdf221ea7b0b.html',
+    google: '4cd6cdf221ea7b0b',
   },
 };
 
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="google4cd6cdf221ea7b0b.html" />
+
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET6778V62K" />
         <script
           dangerouslySetInnerHTML={{
