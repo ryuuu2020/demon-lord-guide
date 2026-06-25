@@ -1,259 +1,179 @@
-'use client';
+import type { Metadata } from 'next';
 
-const BUILDS = [
-  {
-    name: 'Flame Sovereign',
-    difficulty: 'Beginner',
-    coreWeapons: 'Flame Longsword · Flame Staff',
-    keySkills: 'Burn Spread · Flame Shield · Scorched Earth',
-    desc: 'The Flame build is the top recommendation for new players. Core mechanic: burn layer stacking — each burn layer deals 3% max HP per second as additional damage, stacking up to 10 layers. The Flame Longsword applies 2 burn layers per hit; the Flame Staff\'s ranged fireballs apply 1 layer but offer greater range.',
-    pros: 'Extremely efficient mob clearing, sustained DOT boss damage, easy gear acquisition',
-    cons: 'Weak against fire-immune enemies, melee requires close-range risk',
-    bestFor: 'Shadow Revenant, speedrun map clearing',
-    rating: 'S Tier',
-    color: 'ember',
-  },
-  {
-    name: 'Frost Monarch',
-    difficulty: 'Medium',
-    coreWeapons: 'Ice Staff · Frost Bow',
-    keySkills: 'Frost Nova · Freeze Domain · Shatter',
-    desc: 'The Frost build focuses on control and slows. Core mechanic: freeze — normal attacks stack slow layers (-10% move speed per layer, max 10), and at 10 stacks the target freezes for 2 seconds. The Ice Staff\'s ice cone barrage applies 2 slow layers per hit; the Frost Bow\'s piercing arrows slow multiple targets simultaneously.',
-    pros: 'Exceptional crowd control, stable boss fights, safe ranged play',
-    cons: 'Lower single-target damage, poor performance vs Void Colossus Phase 3',
-    bestFor: 'Flame Warden, high-mobility bosses',
-    rating: 'A Tier',
-    color: 'dark-gold',
-  },
-  {
-    name: 'Tempest Vanguard',
-    difficulty: 'Normal',
-    coreWeapons: 'Tempest Axe · Storm Sword',
-    keySkills: 'Whirlwind · Storm Eye · Cleave',
-    desc: 'The Tempest build is the melee AOE king. The Tempest Axe\'s charged attack releases a 360° whirlwind covering roughly half the screen, one-shotting all small mobs. Storm Eye creates a pulling vortex that drags nearby enemies in for whirlwind clearing. Excellent for map farming and add clearing.',
-    pros: 'Highest AOE damage, #1 clearing efficiency, satisfying impact feel',
-    cons: 'Average boss single-target DPS, cannot move during charge, fragile',
-    bestFor: 'Void Colossus Phase 2, speedrun clearing',
-    rating: 'A Tier',
-    color: 'ember',
-  },
-  {
-    name: 'Venom Shadow',
-    difficulty: 'Hard',
-    coreWeapons: 'Poison Dagger · Corrosion Staff',
-    keySkills: 'Toxic Cloud · Poison Amplify · Venom Burst',
-    desc: 'The Poison build specializes in sustained damage. Poison stacks have no cap, each layer dealing 1.5% max HP per second. The Poison Dagger attacks extremely fast (3 hits/s), applying 2 poison layers per hit. The Corrosion Staff releases a toxic cloud covering a 300px area, continuously stacking poison on enemies within.',
-    pros: 'Highest sustained single-target DOT ceiling, ideal for boss endurance fights',
-    cons: 'No burst, slow mob clearing, difficult gear acquisition',
-    bestFor: 'The Former King, Void Colossus',
-    rating: 'A Tier',
-    color: 'blood-red',
-  },
-  {
-    name: 'Void Walker',
-    difficulty: 'Extreme',
-    coreWeapons: 'Shadow Blade · Void Bow',
-    keySkills: 'Shadow Step · Invisibility · Backstab',
-    desc: 'The Stealth build is a high-skill specialty. While invisible, you can pass through enemies undetected, and backstab attacks deal 300% damage. Shadow Step provides brief invincibility frames (0.5s) for dodge-attacking. Special ability: even in the Void Colossus Phase 3 full-screen darkness, you can locate the boss directly.',
-    pros: 'Extremely high skill ceiling with i-frames, bypasses darkness mechanics, terrifying burst',
-    cons: 'Requires extreme precision, one mistake = death, hardest gear to acquire',
-    bestFor: 'Void Colossus Phase 3, no-hit challenge runs',
-    rating: 'S Tier',
-    color: 'parchment-dim',
-  },
-  {
-    name: 'Inferno Tempest (Flame + Tempest Hybrid)',
-    difficulty: 'Normal',
-    coreWeapons: 'Flame Longsword · Tempest Axe',
-    keySkills: 'Burn Spread · Whirlwind · Flame Shield',
-    desc: 'Flame + Tempest is the most popular beginner hybrid build. The Flame Longsword stacks burn layers for sustained DOT, while the Tempest Axe clears mobs and delivers AOE. Weapon-switch timing is key — Tempest for mobs, Flame for bosses. Both weapons are available early (Shop Node 3 and Abandoned Temple), fast to assemble.',
-    pros: 'Versatile, fast assembly, high forgiveness margin',
-    cons: 'Weapon switching takes practice, lower ceiling than specialized builds',
-    bestFor: 'All bosses general use, beginner clear首选',
-    rating: 'S Tier',
-    color: 'dark-gold',
-  },
+export const metadata: Metadata = {
+  title: 'Demon Lord: Just a Block Weapon & Build Guide — Best Combinations',
+  description: 'Complete Demon Lord: Just a Block build guide. All 14 weapons ranked, best weapon combinations, card synthesis recipes, and how to unlock each weapon.',
+};
+
+const WEAPONS = [
+  { name: 'Lancelot', unlock: 'Interact with the sword stand near the big tree in Forest', type: 'Melee / Greatsword' },
+  { name: 'Lightning Sparrow', unlock: 'Find Murphy and interact with him', type: 'Lightning / Speed' },
+  { name: 'Eye Laser Cannon', unlock: 'Clear the trial room twice', type: 'Ranged / Laser' },
+  { name: 'Skull Fist', unlock: 'Pass through 10 rooms', type: 'Melee / Fist' },
+  { name: 'Divine Crossbow', unlock: 'Unlock near the Black Dragon Nest in Cave area', type: 'Ranged / Crossbow' },
+  { name: 'Diamond Shield', unlock: 'Accumulate 50 parries', type: 'Defense / Shield' },
+  { name: 'Shadow Dagger', unlock: 'Defeat any boss with 1 HP remaining', type: 'Dagger / Speed' },
+  { name: 'Original Fantasy', unlock: 'Collect 18 Hard Bones (accumulate through deaths)', type: 'Special / Multi-form' },
+  { name: 'Demon God Sword', unlock: 'Defeat normal ending Demon God Sword boss', type: 'Melee / Demon' },
+  { name: 'Ham Bat', unlock: 'Kill the Ham Knight\'s thrown ham bat and pick it up', type: 'Melee / Blunt' },
+  { name: 'Golden Skull', unlock: 'Collect 16 Golden Skulls', type: 'Special / Collection' },
+  { name: 'Blood Blade', unlock: 'Exchange blood at cat room, use item at goddess statue, defeat goddess', type: 'Melee / Blood' },
+  { name: 'Fish Tail Avatar', unlock: 'Defeat Fish Tail Tan with bare hands (no weapon)', type: 'Special / Transform' },
+  { name: 'Death Scythe', unlock: 'One-hit kill the shopkeeper and defeat the triggered boss', type: 'Melee / Scythe' },
 ];
 
-const BUILD_COMPARISON = [
-  { name: 'Flame', difficulty: 'Beginner', aoe: 'High', single: 'High', control: 'Low', survival: 'Medium', rating: 'S' },
-  { name: 'Frost', difficulty: 'Medium', aoe: 'Medium', single: 'Medium', control: 'Very High', survival: 'High', rating: 'A' },
-  { name: 'Tempest', difficulty: 'Normal', aoe: 'Very High', single: 'Medium', control: 'Low', survival: 'Low', rating: 'A' },
-  { name: 'Poison', difficulty: 'Hard', aoe: 'Low', single: 'Very High', control: 'Medium', survival: 'Medium', rating: 'A' },
-  { name: 'Stealth', difficulty: 'Extreme', aoe: 'Low', single: 'Very High', control: 'High', survival: 'Low', rating: 'S' },
-  { name: 'Flame+Tempest', difficulty: 'Normal', aoe: 'Very High', single: 'Very High', control: 'Medium', survival: 'High', rating: 'S' },
+const CARD_CATEGORIES = [
+  { name: 'Attack Cards', examples: 'Demon Army (魔軍), Shuriken (手裏剑), Bat (蝙蝠), Bomb (炸彈)', desc: 'Direct damage and combat abilities. Synthesize with other types for advanced effects.' },
+  { name: 'Element Cards', examples: 'Fire (火焰), Lightning (閃電), Ice (冰)', desc: 'Elemental effects that combine with attack cards for enhanced damage types.' },
+  { name: 'Utility Cards', examples: 'Items (道具), Environment (環境), Invincibility (無敵), Turret (砲台)', desc: 'Support and environmental cards that create synergies with attack cards.' },
+];
+
+const CARD_RECIPES = [
+  { combo: 'Demon Army + Shuriken', result: 'Love\'s Lash (愛的鞭撻)' },
+  { combo: 'Items + Bat', result: 'Bat Machine Gun (蝙蝠機關槍)' },
+  { combo: 'Bat + Demon Army', result: 'Parasitic Bat (寄生蝙蝠)' },
+  { combo: 'Demon Army + Fire', result: 'Burning Legion (燃燒軍團)' },
+  { combo: 'Environment + Bomb', result: 'Bomb Tree (炸彈樹)' },
+  { combo: 'Bomb + Bat', result: 'Bat Bomb (蝙蝠炸彈)' },
+  { combo: 'Fire + Environment', result: 'Ripe Fruit (熟熟果實)' },
+  { combo: 'Shuriken + Lightning', result: 'Conductive Dagger (導電暗器)' },
+  { combo: 'Lightning + Bat', result: 'Lightning Bat (閃電蝙蝠)' },
+  { combo: 'Bomb + Demon Army', result: 'Bomb Legion (炸彈軍團)' },
+  { combo: 'Demon Army + Invincibility', result: 'Holy Protection (聖光庇護)' },
+  { combo: 'Demon Army + Turret', result: 'Army Assembly (大軍集結)' },
 ];
 
 const FAQ_SNIPPETS = [
-  { q: 'Q: What build should beginners pick?', a: 'A: Strongly recommend the Flame build or the Flame+Tempest hybrid. Both have easy gear acquisition, simple mechanics, and high forgiveness. The Flame Longsword core weapon is available at Shop Node 3, enabling fast assembly. Avoid the Stealth build as a beginner.' },
-  { q: 'Q: Can I switch builds mid-run?', a: 'A: Yes. At Shop Nodes or save points you can swap weapons and skill loadouts. Prepare at least two build presets: one AOE clearing set (Tempest or Flame) and one boss-fighting set (elemental counter based on boss weakness).' },
-  { q: 'Q: Which build has the highest damage output?', a: 'A: Highest single-target is the Poison build (unlimited DOT stacking). Highest AOE is the Tempest build. The overall top-rated hybrid is Flame+Tempest — its S-tier rating comes from over 500 community player votes.' },
+  {
+    q: 'Q: What weapon should I pick first?',
+    a: 'A: The Lancelot is the most accessible first weapon — simply interact with the sword near the big tree in Dark Dragon Forest. It has reliable damage and a charged attack capability. The Original Fantasy (unlocked via deaths) offers multiple combat forms and is one of the most versatile weapons.',
+  },
+  {
+    q: 'Q: How do the cards work?',
+    a: 'A: Defeating enemies drops cards. Combine three same-element cards at Shop Nodes for advanced versions. Different card types (attack, element, utility) can be synthesized to create powerful color-tier abilities. The game has over 200 ability cards to collect.',
+  },
+  {
+    q: 'Q: Is there a "best" build?',
+    a: 'A: Builds in Demon Lord are defined by your weapon choice and card combination, not traditional elemental archetypes. Experiment with weapon-card synergies. The Death Scythe is widely considered the hardest hitter but requires defeating the shopkeeper to unlock. For safety, pair the Diamond Shield with ranged weapons.',
+  },
 ];
 
 export default function BuildsPage() {
   return (
-    <div className="min-h-screen bg-abyss bg-rune-pattern">
-      <header className="fixed top-0 left-0 right-0 z-30 bg-abyss/95 border-b border-border-gold/30 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-4 lg:px-6 py-3">
-          <a href="/" className="font-display text-sm tracking-display-wide text-dark-gold text-shadow-gold">
-            Demon Lord Archive
-          </a>
-          <a href="/" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-dark-gold transition-colors">
-            &larr; HOME
-          </a>
+    <div className="bg-abyss bg-rune-pattern min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 lg:px-6 py-10">
+
+        {/* Header */}
+        <div className="mb-10">
+          <p className="font-label text-[10px] uppercase tracking-[0.25em] text-dark-gold mb-3">
+            Arsenal of Chaos
+          </p>
+          <h1 className="font-display text-3xl lg:text-4xl tracking-display text-parchment">
+            WEAPONS & BUILDS
+          </h1>
+          <p className="font-body text-lg text-parchment-dim mt-4 max-w-2xl leading-relaxed">
+            Demon Lord: Just a Block features 14 unique weapons, each with distinct mechanics.
+            Builds are defined by your weapon and card combination — experiment to find synergies
+            that match your playstyle. All data verified from community guides and Steam achievements.
+          </p>
+          <div className="w-24 h-px bg-dark-gold mt-6" />
         </div>
-      </header>
 
-      <main className="pt-20 pb-32">
-        <div className="max-w-5xl mx-auto px-4 lg:px-6">
-          <div className="mb-12">
-            <p className="font-label text-[10px] uppercase tracking-[0.25em] text-dark-gold mb-3">
-              Arsenal of Chaos
-            </p>
-            <h1 className="font-display text-3xl lg:text-4xl tracking-display text-parchment text-shadow-gold">
-              BUILD COMPENDIUM
-            </h1>
-            <p className="font-body text-lg text-parchment-dim mt-4 max-w-2xl leading-relaxed">
-              Complete build guide for Demon Lord: Just a Block. Covers 6 primary builds spanning Flame, Frost, Tempest, Poison, Stealth, and Hybrid archetypes. Core weapons, key skills, pros/cons, and ideal boss matchups for each. Data sourced from community testing and vote statistics.
-            </p>
-            <div className="blood-strip mt-6" />
-          </div>
-
-          {/* Comparison Table */}
-          <div className="mb-12">
-            <h2 className="font-display text-xl tracking-display text-parchment mb-4">Build Quick Comparison</h2>
-            <div className="grimoire-card overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-border-gold">
-                      <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Build</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Difficulty</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">AOE</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Single</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Control</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Survival</th>
-                      <th className="text-center py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Rating</th>
+        {/* Weapons Table */}
+        <section className="mb-12">
+          <h2 className="font-display text-xl tracking-display text-parchment mb-4">All 14 Weapons & Unlock Conditions</h2>
+          <div className="border border-border-gold overflow-hidden bg-abyss-elevated">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border-gold">
+                    <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Weapon</th>
+                    <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Type</th>
+                    <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">How to Unlock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {WEAPONS.map((w, i) => (
+                    <tr key={i} className={`${i < WEAPONS.length - 1 ? 'border-b border-border-gold/20' : ''} hover:bg-dark-gold/5 transition-colors`}>
+                      <td className="py-3 px-4">
+                        <span className="font-display text-sm text-parchment">{w.name}</span>
+                      </td>
+                      <td className="py-3 px-4">
+                        <span className="font-label text-[10px] uppercase tracking-wider text-dark-gold">{w.type}</span>
+                      </td>
+                      <td className="py-3 px-4 font-body text-sm text-parchment-dim leading-relaxed">{w.unlock}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {BUILD_COMPARISON.map((b, i) => (
-                      <tr key={i} className={`${i < BUILD_COMPARISON.length - 1 ? 'border-b border-border-gold/20' : ''} hover:bg-dark-gold/5 transition-colors`}>
-                        <td className="py-3 px-4 font-display text-sm text-parchment">{b.name}</td>
-                        <td className="py-3 px-4 text-center font-body text-sm text-parchment-dim">{b.difficulty}</td>
-                        <td className="py-3 px-4 text-center font-label text-xs tabular-nums text-ember">{b.aoe}</td>
-                        <td className="py-3 px-4 text-center font-label text-xs tabular-nums text-dark-gold">{b.single}</td>
-                        <td className="py-3 px-4 text-center font-label text-xs tabular-nums text-dark-gold">{b.control}</td>
-                        <td className="py-3 px-4 text-center font-label text-xs tabular-nums text-parchment-dim">{b.survival}</td>
-                        <td className="py-3 px-4 text-center font-label text-xs tabular-nums text-blood-red font-bold">{b.rating}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <p className="font-body text-xs text-parchment-dim/60 mt-2 italic">* Ratings based on 500+ community player votes. Ratings may shift with version updates.</p>
           </div>
+        </section>
 
-          {/* Build Cards */}
-          <div className="space-y-8 mb-16">
-            {BUILDS.map((build, i) => (
-              <div key={i} className="grimoire-card p-6 lg:p-8">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
-                  <div>
-                    <span className="gold-tag mb-2 inline-block">{build.rating} Build</span>
-                    <h2 className="font-display text-xl tracking-display text-parchment mt-2">
-                      {build.name}
-                    </h2>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="font-label text-[10px] uppercase tracking-wider text-parchment-dim">
-                      {build.difficulty}
-                    </span>
-                  </div>
-                </div>
-
-                <p className="font-body text-sm text-parchment-dim leading-relaxed mb-6">{build.desc}</p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <h4 className="font-label text-[10px] uppercase tracking-wider text-dark-gold mb-2">Core Weapons</h4>
-                    <p className="font-body text-sm text-parchment-dim">{build.coreWeapons}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-label text-[10px] uppercase tracking-wider text-dark-gold mb-2">Key Skills</h4>
-                    <p className="font-body text-sm text-parchment-dim">{build.keySkills}</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-border-gold/20">
-                  <div>
-                    <h4 className="font-label text-[10px] uppercase tracking-wider text-dark-gold mb-1">Pros</h4>
-                    <p className="font-body text-sm text-parchment-dim leading-relaxed">{build.pros}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-label text-[10px] uppercase tracking-wider text-blood-red mb-1">Cons</h4>
-                    <p className="font-body text-sm text-parchment-dim leading-relaxed">{build.cons}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-label text-[10px] uppercase tracking-wider text-dark-gold mb-1">Best For</h4>
-                    <p className="font-body text-sm text-parchment-dim leading-relaxed">{build.bestFor}</p>
-                  </div>
-                </div>
+        {/* Card System */}
+        <section className="mb-12">
+          <h2 className="font-display text-xl tracking-display text-parchment mb-4">Card System Overview</h2>
+          <p className="font-body text-sm text-parchment-dim mb-6 leading-relaxed">
+            The game features over 200 ability cards across three main categories. Cards drop from enemies
+            and can be synthesized at Shop Nodes. Three same-element cards create advanced versions.
+            Experiment with cross-type synthesis for powerful color-tier abilities.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {CARD_CATEGORIES.map((cat, i) => (
+              <div key={i} className="border border-border-gold p-5 bg-abyss-elevated">
+                <h3 className="font-display text-sm tracking-display text-dark-gold mb-3">{cat.name}</h3>
+                <p className="font-label text-[10px] uppercase tracking-wider text-parchment-dim/80 mb-2">{cat.examples}</p>
+                <p className="font-body text-sm text-parchment-dim leading-relaxed">{cat.desc}</p>
               </div>
             ))}
           </div>
+        </section>
 
-          {/* FAQ */}
-          <section className="mb-16">
-            <div className="mb-8">
-              <h2 className="font-display text-2xl tracking-display text-parchment">BUILD FAQ</h2>
-              <div className="gold-divider mt-4" />
+        {/* Synthesis Recipes */}
+        <section className="mb-12">
+          <h2 className="font-display text-xl tracking-display text-parchment mb-4">Card Synthesis Recipes</h2>
+          <div className="border border-border-gold overflow-hidden bg-abyss-elevated">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border-gold">
+                    <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Combination</th>
+                    <th className="text-left py-3 px-4 font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CARD_RECIPES.map((recipe, i) => (
+                    <tr key={i} className={`${i < CARD_RECIPES.length - 1 ? 'border-b border-border-gold/20' : ''} hover:bg-dark-gold/5 transition-colors`}>
+                      <td className="py-3 px-4 font-body text-sm text-parchment">{recipe.combo}</td>
+                      <td className="py-3 px-4 font-body text-sm text-dark-gold">{recipe.result}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <div className="space-y-4">
-              {FAQ_SNIPPETS.map((faq, i) => (
-                <div key={i} className="grimoire-card p-6">
-                  <p className="font-label text-sm text-dark-gold mb-2">{faq.q}</p>
-                  <p className="font-body text-sm text-parchment-dim leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-      </main>
-
-      <footer className="relative z-10 pb-20">
-        <div className="max-w-5xl mx-auto px-4 lg:px-6">
-          <div className="gold-divider mb-6" />
-          <div className="mb-6 text-center">
-            <p className="font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim mb-3">More Roguelike Guides</p>
-            <a href="https://tabletop-tavern-guide.vercel.app" target="_blank" rel="noopener noreferrer"
-              className="font-body text-sm text-dark-gold hover:text-dark-gold-dim transition-colors duration-200">Tabletop Tavern Guide</a>
           </div>
-          <div className="gold-divider mb-6" />
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-6">
-              <span className="font-label text-[10px] uppercase tracking-wider text-parchment-dim">
-                &copy; {new Date().getFullYear()} Demon Lord Archive
-              </span>
-              <a href="/privacy" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-parchment transition-colors">PRIVACY</a>
-              <a href="/terms" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-parchment transition-colors">TERMS</a>
-            </div>
-            <a href="https://afdian.com/a/gameguidehub" target="_blank" rel="noopener noreferrer"
-              className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors">AFDIAN SUPPORT</a>
-          </div>
-        </div>
-      </footer>
+        </section>
 
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-abyss/95 border-t border-border-gold/30 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto flex items-center justify-center overflow-x-auto">
-          {[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: 'Bosses', href: '/bosses' }, { label: 'Builds', href: '/builds' }, { label: 'Lore', href: '/lore' }, { label: 'FAQ', href: '/faq' }, { label: 'News', href: '/news' }].map((item) => (
-            <a key={item.label} href={item.href} className="flex flex-col items-center gap-1 px-4 py-2 text-xs font-label uppercase tracking-widest text-parchment-dim hover:text-dark-gold transition-all duration-300 border-t-2 border-transparent hover:border-dark-gold">
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </div>
-      </nav>
+        {/* FAQ */}
+        <section>
+          <div className="mb-6">
+            <h2 className="font-display text-xl tracking-display text-parchment">BUILD FAQ</h2>
+            <div className="w-16 h-px bg-dark-gold mt-4" />
+          </div>
+          <div className="space-y-4">
+            {FAQ_SNIPPETS.map((faq, i) => (
+              <div key={i} className="border border-border-gold p-6 bg-abyss-elevated">
+                <p className="font-label text-sm text-dark-gold mb-2">{faq.q}</p>
+                <p className="font-body text-sm text-parchment-dim leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <p className="font-label text-[10px] uppercase tracking-wider text-parchment-dim/60 mt-8 text-center">
+          Data verified from community achievement guides. Updated June 25, 2026. Unofficial fan site.
+        </p>
+      </div>
     </div>
   );
 }

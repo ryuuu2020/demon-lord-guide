@@ -2,18 +2,28 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Demon Lord Archive — Dark Fantasy Guide Hub',
-  description: 'Demon Lord: Just a Block complete strategy guide — all boss strategies, build recommendations, weapon compendium, and beginner walkthrough',
+  title: 'Demon Lord: Just a Block Guide — Boss Strategies, Weapons & Achievements',
+  description: 'Complete strategy guide for Demon Lord: Just a Block. Boss strategies, weapon unlocks, achievement guide, card synthesis recipes and beginner walkthrough for this action roguelite.',
   metadataBase: new URL('https://demon-lord-guide.vercel.app'),
   openGraph: {
-    title: 'Demon Lord Archive',
-    description: 'Demon Lord: Just a Block complete strategy guide — all boss strategies, build recommendations, weapon compendium, and beginner walkthrough',
+    title: 'Demon Lord: Just a Block Guide',
+    description: 'Complete strategy guide for Demon Lord: Just a Block. Boss strategies, weapon unlocks, achievement guide, card synthesis recipes and beginner walkthrough.',
     type: 'website',
   },
   verification: {
     google: 'google4cd6cdf221ea7b0b.html',
   },
 };
+
+const NAV_ITEMS = [
+  { label: 'Home', href: '/' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'Bosses', href: '/bosses' },
+  { label: 'Weapons', href: '/weapons' },
+  { label: 'Beginners', href: '/beginners-guide' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'News', href: '/news' },
+];
 
 export default function RootLayout({
   children,
@@ -24,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="google4cd6cdf221ea7b0b.html" />
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-ET6778V62K`} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET6778V62K" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -38,11 +48,106 @@ export default function RootLayout({
         {/* Google AdSense */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8925824244664340" crossOrigin="anonymous" />
       </head>
-      <body className="font-body min-h-screen flex flex-col">
-        <div className="flex-1">{children}</div>
-        <footer className="text-center py-4 border-t border-gray-800">
-          <a href="https://afdian.com/a/gameguidehub" target="_blank" rel="noopener noreferrer" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">❤️ Support Us</a>
-        </footer>
+      <body className="font-body min-h-screen flex flex-col bg-abyss text-parchment bg-rune-pattern">
+        <div className="flex min-h-screen flex-1">
+          {/* Sidebar */}
+          <aside className="fixed top-0 left-0 z-50 h-full w-56 bg-abyss border-r border-border-gold/20 hidden lg:block">
+            {/* Logo */}
+            <a href="/" className="flex items-center gap-3 px-5 h-14 border-b border-border-gold/20 hover:bg-dark-gold/5 transition-colors">
+              <span className="font-display text-sm tracking-display text-dark-gold text-shadow-gold">
+                DEMON LORD
+              </span>
+            </a>
+
+            {/* Navigation */}
+            <nav className="py-4 flex flex-col gap-0.5 flex-1">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center gap-3 px-5 py-2.5 font-label text-xs uppercase tracking-wider text-parchment-dim hover:text-dark-gold hover:bg-dark-gold/5 transition-colors border-l-2 border-transparent hover:border-dark-gold"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* Bottom section */}
+            <div className="p-4 border-t border-border-gold/20">
+              <p className="font-label text-[10px] uppercase tracking-wider text-parchment-dim">
+                Demon Lord Guide
+              </p>
+              <p className="font-label text-[9px] text-parchment-dim/60 mt-1">
+                v1.0.0 — Unofficial
+              </p>
+            </div>
+          </aside>
+
+          {/* Main content area */}
+          <div className="flex-1 flex flex-col min-w-0 lg:ml-56">
+            {/* Header */}
+            <header className="h-14 border-b border-border-gold/20 bg-abyss flex items-center px-4 lg:px-6 gap-4">
+              {/* Mobile logo */}
+              <a href="/" className="lg:hidden font-display text-sm tracking-display text-dark-gold">
+                DEMON LORD
+              </a>
+
+              {/* Spacer */}
+              <div className="flex-1" />
+
+              {/* Support Us - top right */}
+              <a
+                href="https://afdian.com/a/gameguidehub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors"
+              >
+                ❤️ Support Us
+              </a>
+
+              {/* Status */}
+              <div className="hidden sm:flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-dark-gold" />
+                <span className="font-label text-[10px] uppercase tracking-wider text-parchment-dim">ONLINE</span>
+              </div>
+            </header>
+
+            {/* Page content */}
+            <main className="flex-1">
+              {children}
+            </main>
+
+            {/* Footer */}
+            <footer className="border-t border-border-gold/20 bg-abyss">
+              <div className="max-w-6xl mx-auto px-4 lg:px-6 py-6">
+                {/* Cross-links */}
+                <div className="mb-4 pb-4 border-b border-border-gold/10">
+                  <p className="font-label text-[10px] uppercase tracking-wider text-parchment-dim mb-2">More Strategy Game Guides</p>
+                  <div className="flex flex-wrap gap-3">
+                    <a href="https://tabletop-tavern-guide.vercel.app" target="_blank" rel="noopener noreferrer" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-dark-gold transition-colors">Tabletop Tavern Guide</a>
+                    <a href="https://dispatch-guide-sigma.vercel.app" target="_blank" rel="noopener noreferrer" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-dark-gold transition-colors">Dispatch Guide</a>
+                    <a href="https://menace-guide.vercel.app" target="_blank" rel="noopener noreferrer" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-dark-gold transition-colors">MENACE Guide</a>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 font-label text-[10px] uppercase tracking-wider text-parchment-dim">
+                    <span>&copy; {new Date().getFullYear()} Demon Lord Guide</span>
+                    <a href="/privacy" className="hover:text-dark-gold transition-colors">Privacy</a>
+                    <a href="/terms" className="hover:text-dark-gold transition-colors">Terms</a>
+                  </div>
+                  <a
+                    href="https://afdian.com/a/gameguidehub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors"
+                  >
+                    SUPPORT ON AFDIAN
+                  </a>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
       </body>
     </html>
   );

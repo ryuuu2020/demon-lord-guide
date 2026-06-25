@@ -1,184 +1,116 @@
-'use client';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Demon Lord: Just a Block FAQ — Common Questions & Answers',
+  description: 'Frequently asked questions about Demon Lord: Just a Block. Gameplay, platforms, achievements, endings, and beginner tips.',
+};
 
 const FAQ_DATA = [
   {
-    q: 'Q: What genre is Demon Lord: Just a Block?',
-    a: 'A: It\'s an action roguelite strategy game. The core feature is "time moves only when you move" — every step is an independent tactical decision. It blends action roguelike combat intensity with turn-based strategy depth. Developed by Chinese indie studio YuWave, released April 29, 2026 on Steam.',
+    q: 'Q: What is Demon Lord: Just a Block?',
+    a: 'A: Demon Lord: Just a Block is an action roguelite strategy game developed by Chinese indie studio YuWave, released April 29, 2026 on Steam. The core mechanic is "time moves only when you move" — every step is a tactical decision. You play as the Demon Lord, reduced to a single block-like head, seeking revenge against fantasy heroes.',
     cat: 'Game Basics',
   },
   {
     q: 'Q: How many endings does the game have?',
-    a: 'A: Three endings total. ① Normal ending: clear the game after defeating the Former King. ② True ending: collect all 24 cards and defeat the Former King again, exposing the Heroes\' Kingdom truth. ③ Hidden ending: defeat the Former King without equipping any weapon (only headbutt attacks), community completion rate under 1%, extremely difficult.',
+    a: 'A: Three endings. ① Normal ending: clear all areas and defeat the Demon God King. ② True ending: collect all 5 Demon Soul Fragments from hidden rifts, place them above the first blacksmith in Demon God Heart, and choose the second dialogue option at the finale (11.5% completion rate). ③ Hidden ending: requires a specific extreme challenge condition.',
     cat: 'Game Basics',
   },
   {
-    q: 'Q: Which platforms are supported? When is the Mac version coming?',
-    a: 'A: Currently on Steam (Windows), with Steam Deck support. Developer YuWave has confirmed a Mac version in development, expected Q3–Q4 2026. No official news on Switch or console ports yet, but community demand is high.',
+    q: 'Q: Which platforms are supported?',
+    a: 'A: Currently available on Steam for Windows. The game also runs well on Steam Deck. YuWave has not announced Mac, Switch, or console versions, but community demand is high. The game supports 12 languages including English, Simplified Chinese, Japanese, and Korean.',
     cat: 'Game Basics',
   },
   {
-    q: 'Q: Is there multiplayer?',
-    a: 'A: No. Demon Lord: Just a Block is a pure single-player experience. However, it supports Steam Workshop — players can create and share custom levels, bosses, and weapon mods. Over 200 community mods already exist with new bosses, weapons, and more.',
+    q: 'Q: Is there multiplayer or co-op?',
+    a: 'A: No, the game is a pure single-player experience. However, it supports Steam Workshop where players can create and share mods. It also features Steam Achievements (38 total), Steam Leaderboards, and Steam Cloud saves.',
     cat: 'Game Basics',
   },
   {
-    q: 'Q: Where should beginners start? How to get into the game?',
-    a: 'A: Read our Beginner\'s Guide (/beginners-guide). Core tips: ① spend 5 minutes understanding the "move = time advances" mechanic; ② pick Flame Longsword at the first shop; ③ challenge Flame Warden first (easiest boss); ④ follow the Flame+Tempest hybrid build route. Average clear runs: 7-12. Don\'t let deaths discourage you.',
+    q: 'Q: Where should beginners start?',
+    a: 'A: Start with our Beginner\'s Guide for the full walkthrough. Key tips: ① spend time understanding the step-based combat; ② get the Lancelot greatsword early (interact with the sword near the big tree in the first area); ③ learn the card system — combine cards for powerful synthesis; ④ don\'t fear death — you keep unlocked weapons, cards, and Golden Skulls.',
     cat: 'Beginner Tips',
   },
   {
-    q: 'Q: Which build is the strongest? What\'s recommended for beginners?',
-    a: 'A: The Flame+Tempest hybrid has the highest overall rating (S Tier) and is the top beginner recommendation. Flame provides burn DOT; Tempest delivers AOE clearing. Fast assembly (core weapon at Shop Node 3), high forgiveness. See the Build Compendium (/builds) for full details.',
-    cat: 'Builds',
+    q: 'Q: How many weapons are there?',
+    a: 'A: 14 weapons total. Starting from the accessible Lancelot to the extreme Death Scythe (requires defeating the shopkeeper). Each weapon has unique mechanics and requires specific achievements to unlock. See our Weapons page for full unlock conditions.',
+    cat: 'Game Basics',
   },
   {
-    q: 'Q: Can I switch builds mid-run?',
-    a: 'A: Yes. At Shop Nodes or Save Points you can swap weapons and skill loadouts. Prepare two build presets: one for mob clearing (AOE type) and one for boss fights (single-target DOT type). Quick-switch during phase transition animations.',
-    cat: 'Builds',
+    q: 'Q: What is the card system?',
+    a: 'A: Defeating enemies drops ability cards. There are over 200 cards across attack, element, and utility categories. Combine three same-element cards at Shops for advanced versions. Cross-type synthesis creates color-tier abilities. Collect all cards to complete your ability catalog.',
+    cat: 'Mechanics',
   },
   {
-    q: 'Q: How to beat Void Colossus Phase 3?',
-    a: 'A: One of the hardest sections in the game. Full-screen darkness with only a tiny visibility radius (~150px). Two solutions: ① bring a Stealth build — invisibility bypasses darkness, allowing direct boss定位; ② practice audio cues — boss attacks have distinct sound patterns (low hum = tentacle attack, sharp hiss = dash). Use Tempest Axe to clear tentacles first.',
-    cat: 'Boss Strategy',
+    q: 'Q: How long is the game?',
+    a: 'A: A first playthrough typically takes 6-10 hours depending on experience with action roguelikes. Subsequent runs are faster as you learn boss patterns and unlock better weapons. Completing all 38 Steam achievements and finding all 23 Golden Skulls adds significant playtime — expect 30+ hours for full completion.',
+    cat: 'Game Basics',
   },
   {
-    q: 'Q: Do bosses have elemental weaknesses?',
-    a: 'A: Yes. Shadow Revenant is weak to fire (burn damage +30%), Flame Warden is weak to frost (freeze duration +50%), Void Colossus is weak to perception/stealth skills, The Former King is weak to crits (crit rate +15%). Flame builds work vs Shadow Revenant and The Former King; Frost builds counter Flame Warden. See Boss Compendium (/bosses).',
-    cat: 'Boss Strategy',
+    q: 'Q: Are there difficulty options or accessibility features?',
+    a: 'A: The game features scaling difficulty through its roguelike design. Accessibility includes: custom volume controls, playable without quick time events, keyboard-only option, mouse-only option, and partial controller support (Xbox and DualSense).',
+    cat: 'Game Basics',
   },
   {
-    q: 'Q: How to complete Steam achievements?',
-    a: 'A: 38 Steam achievements total. Most unlock naturally with progression. Harder ones include: no-hit defeat of any boss (achievement "Perfect Block"), clear the hidden ending (achievement "True Demon Lord"), collect all 24 cards (achievement "Card Master"). Community has compiled full achievement guides — search Steam Guides.',
+    q: 'Q: What are the Golden Skulls?',
+    a: 'A: Golden Skulls are hidden collectibles scattered across all 7 areas (23 total). Some require specific items or abilities to reach. Collecting 16 unlocks the Golden Skull weapon. The Novice Village key requires 77 cumulative gold spent at the archery location. Full exploration is heavily rewarded.',
+    cat: 'Mechanics',
+  },
+  {
+    q: 'Q: What are the hardest achievements?',
+    a: 'A: The Chromatic achievement requires no-damage completion on the hardest difficulty — only 2.0% of players have achieved this. The Gilded achievement has 2.6% completion. The True ending (Demon God Shattered) has 11.5%. The most commonly missed hidden achievement is "Hidden Lulu" — repeatedly click Lulu\'s sticker on the achievements page.',
     cat: 'Achievements',
   },
   {
-    q: 'Q: Recommended Steam Workshop mods?',
-    a: 'A: Community top picks: Boss Rush Mode (consecutive boss fights, achievement farming), Damage Numbers (display damage digits for build testing), Localization Enhancement Patch (text polish and font optimization), New Weapon Pack (10+ new weapons), Hardcore Mode (enemy HP and damage doubled). Sort by rating in the Steam Workshop.',
-    cat: 'Mods & Community',
-  },
-  {
-    q: 'Q: Does the game support Chinese?',
-    a: 'A: Yes. Native support for Simplified and Traditional Chinese with fully localized UI and subtitles. Developer YuWave is a Chinese team — translation quality is high. For occasional translation issues, install the community Localization Enhancement mod.',
-    cat: 'Game Basics',
+    q: 'Q: How do I get the True ending?',
+    a: 'A: Step 1: Find all 5 Demon Soul Fragments from hidden rifts in Slime Island (normal path), Royal City Dungeon (Queen Ghost room upper-right), Novice Village (below Hero Hut wall), Snow Mountain (light torches in specific order), and Demon God Heart (right of blacksmith room). Step 2: In Demon God Heart, place the 5 fragments above the first blacksmith room. Step 3: At the finale, choose the second dialogue option.',
+    cat: 'Endings',
   },
 ];
 
-const CATEGORIES = ['Game Basics', 'Beginner Tips', 'Builds', 'Boss Strategy', 'Achievements', 'Mods & Community'];
-
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-abyss bg-rune-pattern">
-      <header className="fixed top-0 left-0 right-0 z-30 bg-abyss/95 border-b border-border-gold/30 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-4 lg:px-6 py-3">
-          <a href="/" className="font-display text-sm tracking-display-wide text-dark-gold text-shadow-gold">
-            Demon Lord Archive
-          </a>
-          <a href="/" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-dark-gold transition-colors">
-            &larr; HOME
-          </a>
+    <div className="bg-abyss bg-rune-pattern min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 lg:px-6 py-10">
+
+        {/* Header */}
+        <div className="mb-10">
+          <p className="font-label text-[10px] uppercase tracking-[0.25em] text-dark-gold mb-3">
+            Answers from the Archive
+          </p>
+          <h1 className="font-display text-3xl lg:text-4xl tracking-display text-parchment">
+            FREQUENTLY ASKED QUESTIONS
+          </h1>
+          <p className="font-body text-lg text-parchment-dim mt-4 max-w-2xl leading-relaxed">
+            Common questions about Demon Lord: Just a Block — from basic mechanics to advanced
+            achievement hunting. All answers verified from official sources and community guides.
+          </p>
+          <div className="w-24 h-px bg-blood-red mt-6" />
         </div>
-      </header>
 
-      <main className="pt-20 pb-32">
-        <div className="max-w-5xl mx-auto px-4 lg:px-6">
-          <div className="mb-12">
-            <p className="font-label text-[10px] uppercase tracking-[0.25em] text-dark-gold mb-3">
-              Questions from the Void
-            </p>
-            <h1 className="font-display text-3xl lg:text-4xl tracking-display text-parchment text-shadow-gold">
-              FREQUENTLY ASKED QUESTIONS
-            </h1>
-            <p className="font-body text-lg text-parchment-dim mt-4 max-w-2xl leading-relaxed">
-              FAQ for Demon Lord: Just a Block. From game basics to boss strategies, from build combos to achievements. 12+ frequently asked questions with detailed answers. Can\'t find what you need? Join the community discussion.
-            </p>
-            <div className="gold-divider mt-6" />
-          </div>
-
-          {/* Category Navigation */}
-          <div className="flex flex-wrap gap-2 mb-10">
-            {CATEGORIES.map((cat) => (
-              <span key={cat} className="inline-flex items-center px-3 py-1 text-[10px] font-label uppercase tracking-wider text-dark-gold border border-border-gold bg-dark-gold/5">
-                {cat}
-              </span>
-            ))}
-          </div>
-
-          {/* FAQ items grouped by category */}
-          <div className="space-y-8">
-            {CATEGORIES.map((category) => {
-              const items = FAQ_DATA.filter((f) => f.cat === category);
-              if (items.length === 0) return null;
-              return (
-                <section key={category}>
-                  <h2 className="font-display text-lg tracking-display text-dark-gold mb-4">{category}</h2>
-                  <div className="space-y-3">
-                    {items.map((faq, i) => (
-                      <div key={i} className="grimoire-card p-6">
-                        <p className="font-label text-sm text-dark-gold mb-2">{faq.q}</p>
-                        <p className="font-body text-sm text-parchment-dim leading-relaxed">{faq.a}</p>
-                      </div>
-                    ))}
+        {/* FAQ Items grouped by category */}
+        {['Game Basics', 'Beginner Tips', 'Mechanics', 'Achievements', 'Endings'].map((category) => {
+          const items = FAQ_DATA.filter((f) => f.cat === category);
+          if (items.length === 0) return null;
+          return (
+            <section key={category} className="mb-10">
+              <h2 className="font-display text-lg tracking-display text-dark-gold mb-4 uppercase">{category}</h2>
+              <div className="space-y-4">
+                {items.map((faq, i) => (
+                  <div key={i} className="border border-border-gold p-6 bg-abyss-elevated">
+                    <p className="font-label text-sm text-dark-gold mb-2">{faq.q}</p>
+                    <p className="font-body text-sm text-parchment-dim leading-relaxed">{faq.a}</p>
                   </div>
-                </section>
-              );
-            })}
-          </div>
-
-          {/* More questions */}
-          <section className="mt-16 text-center">
-            <div className="grimoire-card p-8">
-              <h2 className="font-display text-xl tracking-display text-dark-gold mb-4">DIDN&apos;T FIND YOUR ANSWER?</h2>
-              <p className="font-body text-sm text-parchment-dim leading-relaxed max-w-lg mx-auto mb-6">
-                Check the Boss Compendium, Build Guides, or Beginner\'s Guide for more detailed info. Or join the player community (Steam Community, Discord) to ask veteran players directly.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/bosses" className="font-label text-[10px] uppercase tracking-[0.2em] text-blood-red hover:text-blood-red-dim transition-colors">
-                  BOSS COMPENDIUM &rarr;
-                </a>
-                <a href="/builds" className="font-label text-[10px] uppercase tracking-[0.2em] text-dark-gold hover:text-dark-gold-dim transition-colors">
-                  BUILD GUIDES &rarr;
-                </a>
-                <a href="/beginners-guide" className="font-label text-[10px] uppercase tracking-[0.2em] text-ember hover:text-embers/70 transition-colors">
-                  BEGINNER&apos;S GUIDE &rarr;
-                </a>
+                ))}
               </div>
-            </div>
-          </section>
-        </div>
-      </main>
+            </section>
+          );
+        })}
 
-      <footer className="relative z-10 pb-20">
-        <div className="max-w-5xl mx-auto px-4 lg:px-6">
-          <div className="gold-divider mb-6" />
-          <div className="mb-6 text-center">
-            <p className="font-label text-[10px] uppercase tracking-[0.2em] text-parchment-dim mb-3">More Roguelike Guides</p>
-            <a href="https://tabletop-tavern-guide.vercel.app" target="_blank" rel="noopener noreferrer"
-              className="font-body text-sm text-dark-gold hover:text-dark-gold-dim transition-colors duration-200">Tabletop Tavern Guide</a>
-          </div>
-          <div className="gold-divider mb-6" />
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-6">
-              <span className="font-label text-[10px] uppercase tracking-wider text-parchment-dim">
-                &copy; {new Date().getFullYear()} Demon Lord Archive
-              </span>
-              <a href="/privacy" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-parchment transition-colors">PRIVACY</a>
-              <a href="/terms" className="font-label text-[10px] uppercase tracking-wider text-parchment-dim hover:text-parchment transition-colors">TERMS</a>
-            </div>
-            <a href="https://afdian.com/a/gameguidehub" target="_blank" rel="noopener noreferrer"
-              className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors">AFDIAN SUPPORT</a>
-          </div>
-        </div>
-      </footer>
-
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-abyss/95 border-t border-border-gold/30 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto flex items-center justify-center overflow-x-auto">
-          {[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: 'Bosses', href: '/bosses' }, { label: 'Builds', href: '/builds' }, { label: 'Lore', href: '/lore' }, { label: 'FAQ', href: '/faq' }, { label: 'News', href: '/news' }].map((item) => (
-            <a key={item.label} href={item.href} className="flex flex-col items-center gap-1 px-4 py-2 text-xs font-label uppercase tracking-widest text-parchment-dim hover:text-dark-gold transition-all duration-300 border-t-2 border-transparent hover:border-dark-gold">
-              <span>{item.label}</span>
-            </a>
-          ))}
-        </div>
-      </nav>
+        <p className="font-label text-[10px] uppercase tracking-wider text-parchment-dim/60 text-center mt-8">
+          Information verified from Steam store page, community guides & achievement data. Updated June 25, 2026.
+        </p>
+      </div>
     </div>
   );
 }
