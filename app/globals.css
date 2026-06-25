@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Template B: Dark Fantasy Epic
+   Color System: Abyss Black + Dark Gold + Blood Red
+   Design: Cinematic immersive, HUD navigation,
+           gold-rimmed cards, gothic typography.
+   Anti-AI: No white, no rounded corners, no grid,
+            no Inter as heading.
+   ============================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-abyss text-parchment font-body;
+  }
+
+  ::selection {
+    @apply bg-dark-gold/30 text-parchment;
+  }
+
+  /* Custom thin scrollbar - dark */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201,168,76,0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201,168,76,0.35);
+  }
+}
+
+@layer components {
+  /* Gold-rimmed card */
+  .grimoire-card {
+    @apply relative bg-abyss-elevated border border-border-gold
+           shadow-gold-glow;
+  }
+  .grimoire-card::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    box-shadow: inset 0 1px 0 rgba(201,168,76,0.15),
+                inset 0 -1px 0 rgba(201,168,76,0.05);
+  }
+  .grimoire-card:hover {
+    @apply border-border-gold-strong;
+    box-shadow: 0 0 24px rgba(201,168,76,0.16), 0 0 72px rgba(201,168,76,0.08);
+  }
+
+  /* Gold accent corner ornament */
+  .corner-ornament {
+    @apply relative;
+  }
+  .corner-ornament::after {
+    content: '';
+    @apply absolute top-0 right-0 w-8 h-8 pointer-events-none;
+    border-top: 1px solid rgba(201,168,76,0.3);
+    border-right: 1px solid rgba(201,168,76,0.3);
+  }
+  .corner-ornament::before {
+    content: '';
+    @apply absolute bottom-0 left-0 w-8 h-8 pointer-events-none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    border-left: 1px solid rgba(201,168,76,0.3);
+  }
+
+  /* HUD nav item */
+  .hud-nav-item {
+    @apply flex flex-col items-center gap-1 px-4 py-2
+           text-xs font-label uppercase tracking-widest
+           text-parchment-dim transition-all duration-300
+           border-t-2 border-transparent;
+  }
+  .hud-nav-item:hover,
+  .hud-nav-item.active {
+    @apply text-dark-gold border-dark-gold;
+    text-shadow: 0 0 12px rgba(201,168,76,0.4);
+  }
+
+  /* Blood-red accent strip */
+  .blood-strip {
+    @apply h-px w-full;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(139,32,32,0.6) 20%,
+      rgba(139,32,32,0.6) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Gold divider */
+  .gold-divider {
+    @apply h-px w-full;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201,168,76,0.3) 15%,
+      rgba(201,168,76,0.5) 50%,
+      rgba(201,168,76,0.3) 85%,
+      transparent 100%
+    );
+  }
+
+  /* Boss / enemy tag */
+  .danger-tag {
+    @apply inline-flex items-center px-2.5 py-0.5
+           text-[10px] font-label uppercase tracking-widest
+           text-blood-red border border-blood-red/30 bg-blood-red/10;
+  }
+
+  /* Gold tag */
+  .gold-tag {
+    @apply inline-flex items-center px-2.5 py-0.5
+           text-[10px] font-label uppercase tracking-widest
+           text-dark-gold border border-border-gold bg-dark-gold-glow;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+  }
+  .text-shadow-blood {
+    text-shadow: 0 0 16px rgba(139,32,32,0.3);
+  }
+}
