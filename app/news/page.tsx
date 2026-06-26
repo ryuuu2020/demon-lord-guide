@@ -13,6 +13,12 @@ const NEWS = [
     tag: 'Release',
   },
   {
+    date: '2026-06-26',
+    title: 'Summer Sale Update: New Soul Scythe Weapon, Stickers, and Skin',
+    summary: "Solo developer YuWave dropped a Summer Sale update adding the Soul Scythe — a wide-sweep melee weapon with lifesteal properties unlocked by defeating the optional Death Knight boss in Area 5. The weapon has quickly become a community favorite for its synergy with Vampiric Strike ability cards. A new cosmetic sticker set and alternate character skin are also included. Demon Lord is participating in the Steam Summer Sale, bringing a fresh wave of players — concurrent player counts spiked to post-launch highs. Having crossed 100,000 players, YuWave's roadmap hints at a potential boss rush mode and additional ability cards planned for later 2026. Achievement hunters note: the Soul Scythe does not unlock new achievements, keeping the 38/38 completion intact — though the Chromatic challenge (2.0% completion) continues to frustrate.",
+    tag: 'Update',
+  },
+  {
     date: '2026-06-25',
     title: 'Community Achievement Guide Now Available',
     summary: 'The community has mapped out all 38 Steam achievements including hidden boss triggers, Golden Skull locations (23 total), and the True ending path. The Demon God Shattered achievement (True ending) has only 11.5% completion. The Chromatic challenge sits at a mere 2.0%.',
