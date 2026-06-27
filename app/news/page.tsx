@@ -7,6 +7,13 @@ export const metadata: Metadata = {
 
 const NEWS = [
   {
+    date: "2026-06-27",
+    title: "Demon Lord Hits 96% Overwhelmingly Positive — Steam Summer Sale 20% Off",
+    tag: "Community",
+    excerpt:
+      "Demon Lord: Just a Block has reached an Overwhelmingly Positive rating on Steam with 96% of 1,809 reviews being positive — and the recent review score is even higher at 95% over the last 30 days (245 reviews). For a roguelite action game from indie developer YuWave, this is an exceptional reception. The game launched on April 29, 2026, and has quickly built a dedicated community around its unique 'world only moves when you do' mechanic, which blends traditional roguelike turn-based planning with fast-paced dodge-and-parry action. Players consistently praise the satisfying collision-based combat, the depth of build variety, and the progression system that rewards both careful planning and reflexive play. The game is currently 20% off during the Steam Summer Sale, making it an easy recommendation at under $12. With 38 Steam Achievements, full Steam Workshop support, and leaderboards, there is plenty of content for completionists. YuWave has been active in the community Discord and has confirmed more content updates are coming later in 2026.",
+  },
+  {
     date: '2026-04-29',
     title: 'Demon Lord: Just a Block Released on Steam',
     summary: 'Developed by solo developer YuWave, Demon Lord: Just a Block launched on Steam with Overwhelmingly Positive reviews. The game features a unique "time moves only when you move" combat system, 14 unlockable weapons, over 200 ability cards, 38 Steam achievements, and 7 main areas to explore. Available in 12 languages.',
