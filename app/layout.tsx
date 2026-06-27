@@ -139,7 +139,7 @@ gtag('config', 'G-ET6778V62K');`}
                     className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors"
                   >
                     SUPPORT ON AFDIAN
-                  </Link>
+                  </a>
                 </div>
               </div>
             </footer>
