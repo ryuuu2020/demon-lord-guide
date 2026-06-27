@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: 'Demon Lord: Just a Block Guide — Boss Strategies, Weapons & Achievements',
@@ -34,30 +36,25 @@ export default function RootLayout({
     <html lang="en">
       <head>
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET6778V62K" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-ET6778V62K');
-            `,
-          }}
-        />
-        {/* Google AdSense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8925824244664340" crossOrigin="anonymous" />
+        <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-ET6778V62K" />
+        <Script strategy="lazyOnload" id="gtag-init">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ET6778V62K');`}
+            </Script>
+        <Script strategy="lazyOnload" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8925824244664340" crossOrigin="anonymous" />
       </head>
       <body className="font-body min-h-screen flex flex-col bg-abyss text-parchment bg-rune-pattern">
         <div className="flex min-h-screen flex-1">
           {/* Sidebar */}
           <aside className="fixed top-0 left-0 z-50 h-full w-56 bg-abyss border-r border-border-gold/20 hidden lg:block">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-3 px-5 h-14 border-b border-border-gold/20 hover:bg-dark-gold/5 transition-colors">
+            <Link href="/" className="flex items-center gap-3 px-5 h-14 border-b border-border-gold/20 hover:bg-dark-gold/5 transition-colors">
               <span className="font-display text-sm tracking-display text-dark-gold text-shadow-gold">
                 DEMON LORD
               </span>
-            </a>
+            </Link>
 
             {/* Navigation */}
             <nav className="py-4 flex flex-col gap-0.5 flex-1">
@@ -88,9 +85,9 @@ export default function RootLayout({
             {/* Header */}
             <header className="h-14 border-b border-border-gold/20 bg-abyss flex items-center px-4 lg:px-6 gap-4">
               {/* Mobile logo */}
-              <a href="/" className="lg:hidden font-display text-sm tracking-display text-dark-gold">
+              <Link href="/" className="lg:hidden font-display text-sm tracking-display text-dark-gold">
                 DEMON LORD
-              </a>
+              </Link>
 
               {/* Spacer */}
               <div className="flex-1" />
@@ -132,8 +129,8 @@ export default function RootLayout({
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-4 font-label text-[10px] uppercase tracking-wider text-parchment-dim">
                     <span>&copy; {new Date().getFullYear()} Demon Lord Guide</span>
-                    <a href="/privacy" className="hover:text-dark-gold transition-colors">Privacy</a>
-                    <a href="/terms" className="hover:text-dark-gold transition-colors">Terms</a>
+                    <Link href="/privacy" className="hover:text-dark-gold transition-colors">Privacy</Link>
+                    <Link href="/terms" className="hover:text-dark-gold transition-colors">Terms</Link>
                   </div>
                   <a
                     href="https://afdian.com/a/gameguidehub"
@@ -142,7 +139,7 @@ export default function RootLayout({
                     className="font-label text-[10px] uppercase tracking-wider text-dark-gold hover:text-dark-gold-dim transition-colors"
                   >
                     SUPPORT ON AFDIAN
-                  </a>
+                  </Link>
                 </div>
               </div>
             </footer>
