@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Demon Lord TERMS OF USE — Complete Guide (2026)",
+  description:
+    "Demon Lord Guide is an unofficial fan strategy site providing guides, boss strategies, weapon compendiums, and other game-related content for Demon Lord: Just a Block. All content is for gameplay refe...",
+};
+
 export default function TermsPage() {
   return (
     <div className="bg-abyss bg-rune-pattern min-h-screen">

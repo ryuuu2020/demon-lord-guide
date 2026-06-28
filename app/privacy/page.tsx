@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Demon Lord PRIVACY POLICY — Complete Guide (2026)",
+  description:
+    "Demon Lord Guide uses Google Analytics to collect anonymized visit statistics (page views, referral channels, etc.) for content optimization. Google Analytics uses anonymized client IDs and does not c...",
+};
+
 export default function PrivacyPage() {
   return (
     <div className="bg-abyss bg-rune-pattern min-h-screen">

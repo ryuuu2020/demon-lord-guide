@@ -41,6 +41,12 @@ const KEY_INFO = [
   { title: '14 Unique Weapons', snippet: 'From the Lancelot greatsword to the Death Scythe, each weapon offers a distinct playstyle. Unlock them through achievements and hidden encounters.' },
   { title: 'Three Endings', snippet: 'Normal ending (clear the game), True ending (collect all 5 demon soul fragments), and Hidden ending (extreme challenge). Only 11.5% of players have achieved the True ending.' },
 ];
+export const metadata = {
+  title: "Demon Lord Every Step Is a Tactical Decision — Complete Guide (2026)",
+  description:
+    "DEMON LORD: JUST A BLOCK",
+};
+
 
 export default function HomePage() {
   return (
