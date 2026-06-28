@@ -25,6 +25,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://demon-lord-guide.vercel.app/demon-tier-list</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://demon-lord-guide.vercel.app/dungeon-design</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://demon-lord-guide.vercel.app/faq</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
