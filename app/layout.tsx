@@ -48,9 +48,9 @@ gtag('config', 'G-ET6778V62K');`}
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={
+          dangerouslySetInnerHTML={{
             __html: `{"@context": "https://schema.org", "@type": "WebSite", "name": "Demon Lord Guide", "url": "https://demon-lord-guide.vercel.app"}`
-          }
+          }}
         />
 
       </head>
