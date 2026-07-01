@@ -42,9 +42,9 @@ const KEY_INFO = [
   { title: 'Three Endings', snippet: 'Normal ending (clear the game), True ending (collect all 5 demon soul fragments), and Hidden ending (extreme challenge). Only 11.5% of players have achieved the True ending.' },
 ];
 export const metadata = {
-  title: "Demon Lord Every Step Is a Tactical Decision — Complete Guide (2026)",
+  title: 'Demon Lord: Just a Block Guide — Bosses, Weapons & Builds',
   description:
-    "DEMON LORD: JUST A BLOCK",
+    'Complete strategy guide for Demon Lord: Just a Block covering bosses, weapon unlocks, card synthesis, beginner progression, and achievement routing.',
 };
 
 
