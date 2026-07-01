@@ -2,11 +2,13 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Script from "next/script";
 import Link from "next/link";
+import SchemaMarkup from '@/shared/SchemaMarkup';
+
 
 export const metadata: Metadata = {
   title: 'Demon Lord: Just a Block Guide — Boss Strategies, Weapons & Achievements',
   description: 'Complete strategy guide for Demon Lord: Just a Block. Boss strategies, weapon unlocks, achievement guide, card synthesis recipes and beginner walkthrough for this action roguelite.',
-  metadataBase: new URL('https://demon-lord-guide.vercel.app'),
+  metadataBase: new URL("https://demonlord.gguidehub.com"),
   openGraph: {
     title: 'Demon Lord: Just a Block Guide',
     description: 'Complete strategy guide for Demon Lord: Just a Block. Boss strategies, weapon unlocks, achievement guide, card synthesis recipes and beginner walkthrough.',
